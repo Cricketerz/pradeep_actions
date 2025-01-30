@@ -1,0 +1,11 @@
+name: My GitHub Action
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pradeep.tr@straive.com
+        run: echo "Hello, world!"
