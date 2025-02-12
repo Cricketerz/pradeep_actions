@@ -15,7 +15,7 @@ jobs:
       - name: Create a commit
         run: |
           echo "Daily update on $(date)" >> update_log.txt
-          git config --local user.email "pradeep.tr@straive.com"
+          git config --local user.email pradeep.tr@straive.com
           git config --local user.name "Automated Commit"
           git add update_log.txt
           git commit -m "Daily commit on $(date)" || echo "No changes to commit"
