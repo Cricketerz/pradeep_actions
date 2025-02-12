@@ -1,0 +1,25 @@
+name: Daily Commit
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # This will run every day at 09:00 UTC
+
+jobs:
+  daily_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create a commit
+        run: |
+          echo "Daily update on $(date)" >> update_log.txt
+          git config --local user.email "pradeep.tr@straive.com"
+          git config --local user.name "Automated Commit"
+          git add update_log.txt
+          git commit -m "Daily commit on $(date)" || echo "No changes to commit"
+
+      - name: Push changes
+        run: |
+          git push origin main  # Change 'main' to your default branch if different
